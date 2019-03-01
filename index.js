@@ -5,7 +5,7 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`SPACEBLOCK.EU2`)
+    client.user.setActivity(`SPACEBLOCK.EU`)
     client.user.setStatus('dnd');
 })
 
