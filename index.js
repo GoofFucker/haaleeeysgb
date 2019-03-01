@@ -23,6 +23,6 @@ client.on('guildMemberAdd', member => {
 client.on('guildMemberAdd', member => {
     var ayy = client.emojis.find(emoji => emoji.name === "tada");
     member.guild.channels.get('549914111492882442').send("Salut " + member + " Bienvenue sur **NegativeNT** ! " + ayy);
-    member.send('Hey, ce message n'est pas terminé');
+    member.send('Hey, ce message n\'est pas terminé');
     console.log("SendJoin"); 
 });
