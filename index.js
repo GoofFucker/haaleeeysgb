@@ -5,7 +5,7 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`Membres SBG - ${guild.memberCount}`, { type: "STREAMING", url: "https://www.twitch.tv/saygoodbye" })
+    client.user.setActivity(`SBG > All`, { type: "STREAMING", url: "https://www.twitch.tv/saygoodbye" })
     client.user.setStatus('dnd');
 })
 
