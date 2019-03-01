@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // client.login(process.env.TOKEN3);
-client.login(process.env.TOKEN6);
+client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
