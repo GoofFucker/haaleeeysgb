@@ -1,27 +1,28 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-// client.login(process.env.TOKEN3);
 client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`J'ai ${client.guilds.size} serveurs`, { type: "STREAMING", url: "https://www.twitch.tv/gotagatv" })
+    client.user.setActivity(`SBG > All`)
+    client.user.setStatus('dnd');
 })
 
 client.on('guildMemberRemove', member => {
-    member.send('Hey Jeune discordeur\n \n Le discord de la ``SBG`` cherche des membres passioné par le développement\n Nous fournissons des alts et des tools par rapport aux invites.\n \n https://discord.gg/TuD72nN');
+    var ayy2 = client.emojis.find(emoji => emoji.name === "x");
+    member.guild.channels.get('549914111492882442').send("Au-revoir " + member + " Merci d'être passé ! " + ayy2);
+    member.send('Hey, si tu souhaites revenir nous voir ^^\n https://discord.gg/Qwkcg8b');
     console.log("SendLeave"); 
 });
 
-client.on("guildCreate", guild => {
-    // This event triggers when the bot joins a guild.
-    console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-    client.user.setActivity(`J'ai ${client.guilds.size} serveurs`, { type: "STREAMING", url: "https://www.twitch.tv/gotagatv" })
-  });
+client.on('guildMemberAdd', member => {
+    if (member.user.username.includes("RCON")) {
+        member.ban("Account being a bot.")}})
 
-  client.on("guildDelete", guild => {
-    // This event triggers when the bot joins a guild.
-    console.log(`New guild leave: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-    client.user.setActivity(`J'ai ${client.guilds.size} serveurs`, { type: "STREAMING", url: "https://www.twitch.tv/gotagatv" })
-  });
+client.on('guildMemberAdd', member => {
+    var ayy = client.emojis.find(emoji => emoji.name === "tada");
+    member.guild.channels.get('549914111492882442').send("Salut " + member + " Bienvenue sur **NegativeNT** ! " + ayy);
+    member.send('Hey, ce message n'est pas terminé');
+    console.log("SendJoin"); 
+});
