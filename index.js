@@ -49,11 +49,11 @@ client.on('guildMemberAdd', member => {
         },
         fields: [{
             name: "FR",
-            value: ":flag_fr: Salut " + member + " Bienvenue sur **NegativeNT** ! :tada:\n"
+            value: ":flag_fr: Salut " + member + " Bienvenue sur **SpaceBlock.eu** ! :tada:\n"
           },
           {
             name: "EN",
-            value: ":flag_us: Hi " + member + " Welcome to **NegativeNT** ! :tada:"
+            value: ":flag_us: Hi " + member + " Welcome to **SpaceBlock.eu** ! :tada:"
           },
         ],
         timestamp: new Date(),
