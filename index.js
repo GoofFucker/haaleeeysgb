@@ -5,7 +5,8 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`SPACEBLOCK.EU`)
+    client.user.setActivity(`CTLSERV.eu`);
+
     client.user.setStatus('dnd');
 })
 
@@ -49,11 +50,11 @@ client.on('guildMemberAdd', member => {
         },
         fields: [{
             name: "FR",
-            value: ":flag_fr: Salut " + member + " Bienvenue sur **SpaceBlock.eu** ! :tada:\n"
+            value: ":flag_fr: Salut " + member + " Bienvenue sur **CTL Reloaded** ! :tada:\n"
           },
           {
             name: "EN",
-            value: ":flag_us: Hi " + member + " Welcome to **SpaceBlock.eu** ! :tada:"
+            value: ":flag_us: Hi " + member + " Welcome to **CTL Reloaded** ! :tada:"
           },
         ],
         timestamp: new Date(),
