@@ -8,10 +8,6 @@ client.on("ready", () => {
     client.user.setActivity(`Urania | Surveillance`, { type: "STREAMING", url: "https://www.twitch.tv/UraniaMC" })
 })
 
-
-    client.user.setStatus('dnd');
-})
-
 client.on('guildMemberRemove', member => {
     member.guild.channels.get('570326840212848642').send({embed: {
         color: 3447003,
