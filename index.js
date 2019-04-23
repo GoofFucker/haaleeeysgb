@@ -5,13 +5,15 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`CTLSERV.eu`);
+    client.user.setActivity(`Urania | Surveillance`, { type: "STREAMING", url: "https://www.twitch.tv/UraniaMC" })
+})
+
 
     client.user.setStatus('dnd');
 })
 
 client.on('guildMemberRemove', member => {
-    member.guild.channels.get('551164240786882601').send({embed: {
+    member.guild.channels.get('570326840212848642').send({embed: {
         color: 3447003,
         author: {
           name: "Leave",
@@ -42,7 +44,7 @@ client.on('guildMemberAdd', member => {
         member.ban("Account being a bot.")}})
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('551164240786882601').send({embed: {
+    member.guild.channels.get('570326840212848642').send({embed: {
         color: 3447003,
         author: {
           name: "Join",
