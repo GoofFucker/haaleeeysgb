@@ -12,16 +12,12 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.get('570326840212848642').send({embed: {
         color: 3447003,
         author: {
-          name: "Leave",
+          name: "(Annonce)",
           icon_url: client.user.avatarURL,
         },
         fields: [{
-            name: "FR",
-            value: ":flag_fr: Au-revoir " + member + " Merci d\'être passé ! :x:\n"
-          },
-          {
-            name: "EN",
-            value: ":flag_us: Goodbye " + member + " Thanks for coming ! :x:"
+            name: "Merci de ta visite !",
+            value: ":x: Au plaisir de vous revoir " + member + " Merci d\'être passé ! :x:\n"
           },
         ],
         timestamp: new Date(),
@@ -43,16 +39,12 @@ client.on('guildMemberAdd', member => {
     member.guild.channels.get('570326840212848642').send({embed: {
         color: 3447003,
         author: {
-          name: "Join",
+          name: "(Annonce)",
           icon_url: client.user.avatarURL,
         },
         fields: [{
-            name: "FR",
-            value: ":flag_fr: Salut " + member + " Bienvenue sur **CTL Reloaded** ! :tada:\n"
-          },
-          {
-            name: "EN",
-            value: ":flag_us: Hi " + member + " Welcome to **CTL Reloaded** ! :tada:"
+            name: "Bienvenue à toi !",
+            value: ":tada: Salut " + member + " Passe de bons moments **Urania** ! :tada:\n"
           },
         ],
         timestamp: new Date(),
