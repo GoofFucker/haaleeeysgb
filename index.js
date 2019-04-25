@@ -5,11 +5,11 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`TEST | Surveillance`, { type: "STREAMING", url: "https://www.twitch.tv/TESTMC" })
+    client.user.setActivity(`ParadoxParis.com`, { type: "STREAMING", url: "https://www.twitch.tv/ParisParadox" })
 })
 
 client.on('guildMemberRemove', member => {
-    member.guild.channels.get('570326840212848642').send({embed: {
+    member.guild.channels.get('569920383415746593').send({embed: {
         color: 3447003,
         author: {
           name: "(Annonce)",
@@ -44,7 +44,7 @@ client.on('guildMemberAdd', member => {
         },
         fields: [{
             name: "Bienvenue à toi !",
-            value: ":tada: Salut " + member + " Passe de bons moments **TEST** ! :tada:\n"
+            value: ":tada: Salut " + member + " Bienvenue sur notre **Discord** ! :tada:\n"
           },
         ],
         timestamp: new Date(),
