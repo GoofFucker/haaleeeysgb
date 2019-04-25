@@ -5,7 +5,7 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`Urania | Surveillance`, { type: "STREAMING", url: "https://www.twitch.tv/UraniaMC" })
+    client.user.setActivity(`TEST | Surveillance`, { type: "STREAMING", url: "https://www.twitch.tv/TESTMC" })
 })
 
 client.on('guildMemberRemove', member => {
@@ -44,7 +44,7 @@ client.on('guildMemberAdd', member => {
         },
         fields: [{
             name: "Bienvenue à toi !",
-            value: ":tada: Salut " + member + " Passe de bons moments **Urania** ! :tada:\n"
+            value: ":tada: Salut " + member + " Passe de bons moments **TEST** ! :tada:\n"
           },
         ],
         timestamp: new Date(),
@@ -54,6 +54,5 @@ client.on('guildMemberAdd', member => {
         }
       }
     });
-    //member.guild.channels.get('551164240786882601').send(":flag_us: Hi " + member + " Welcome to **NegativeNT** ! :tada:\n :flag_fr: Salut " + member + " Bienvenue sur **NegativeNT** ! :tada:");
     console.log("SendJoin"); 
 });
