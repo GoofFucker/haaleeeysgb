@@ -5,11 +5,11 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`ParadoxParis.com`, { type: "STREAMING", url: "https://www.twitch.tv/ParisParadox" })
+    client.user.setActivity(`Développé par BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/BalanceTonQuoi19" })
 })
 
 client.on('guildMemberRemove', member => {
-    member.guild.channels.get('569920383415746593').send({embed: {
+    member.guild.channels.get('571118782961942528').send({embed: {
         color: 3447003,
         author: {
           name: "(Annonce)",
@@ -36,7 +36,7 @@ client.on('guildMemberAdd', member => {
         member.ban("Account being a bot.")}})
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('570326840212848642').send({embed: {
+    member.guild.channels.get('571118782961942528').send({embed: {
         color: 3447003,
         author: {
           name: "(Annonce)",
