@@ -59,7 +59,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`❔`)) return message.channel.send(`Vous ne pouvez pas faire cela ici`);
+        if (!message.channel.name.startsWith(`❔`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(` `);
         if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez actuellement un ticket`);
@@ -93,7 +93,7 @@ client.on('message', message => {
     if (message.content === '§ticket close') {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
         // Confirm delete - with timeout (Not command)
-        message.channel.send(`Êtes-vous sur de vouloir faire ceci ? Pour confirmer tapez la commande §confirm. Vous avez 10 secondes pour confirmer`)
+        message.channel.send(`Pour confirmer tapez la commande ___***§confirm***___. Vous avez 10 secondes pour confirmer`)
             .then((m) => {
                 message.channel.awaitMessages(response => response.content === '§confirm', {
                         max: 1,
