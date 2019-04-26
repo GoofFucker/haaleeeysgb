@@ -57,16 +57,8 @@ client.on('guildMemberAdd', member => {
     console.log("SendJoin"); 
 });
 
-client.on("message", (message) => {
-    if (!isCommand(message) || message.author.bot) return;
-    // Ping Command
-    if (isCommand(message, "ping")) {
-        message.channel.send(`Fetching!`).then(m => {
-            m.edit(`**Bot** - ` + (m.createdTimestamp - message.createdTimestamp) + `ms.` + ` \n**Discord API** - ` + Math.round(client.ping) + `ms.`);
-        });
-    }
-    // New ticket command
-    if (isCommand(message, "new")) {
+client.on('message', message => {
+    if (message.content === '§ticket open') {
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
@@ -97,7 +89,7 @@ client.on("message", (message) => {
     }
 
     // Close ticket command
-    if (isCommand(message, "close")) {
+    if (message.content === '§ticket close') {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
         // Confirm delete - with timeout (Not command)
         message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`/confirm\`. This will time out in 10 seconds and be cancelled.`)
