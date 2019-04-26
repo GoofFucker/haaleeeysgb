@@ -59,10 +59,10 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`《❔》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗱𝗲-𝗧𝗶𝗰𝗸𝗲𝘁𝘀`)) return message.channel.send(`Vous ne pouvez pas faire cela ici`);
+        if (!message.channel.name.startsWith(`❔`)) return message.channel.send(`Vous ne pouvez pas faire cela ici`);
         const reason = message.content.split(" ").slice(1).join(" ");
-        if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez déjà un ticket`);
+        if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(` `);
+        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez actuellement un ticket`);
         message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Staff");
             let role2 = message.guild.roles.find("name", "@everyone");
@@ -104,7 +104,7 @@ client.on('message', message => {
                         message.channel.delete();
                     })
                     .catch(() => {
-                        m.edit('Le ticket n''a pas été supprimé.').then(m2 => {
+                        m.edit('Le ticket a pas été supprimé.').then(m2 => {
                             m2.delete();
                         }, 3000);
                     });
