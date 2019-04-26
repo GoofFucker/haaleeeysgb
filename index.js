@@ -59,9 +59,10 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
+        if (!message.channel.name.startsWith(`《❔》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗱𝗲-𝗧𝗶𝗰𝗸𝗲𝘁𝘀`)) return message.channel.send(`Vous ne pouvez pas faire cela ici`);
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
+        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez déjà un ticket`);
         message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Staff");
             let role2 = message.guild.roles.find("name", "@everyone");
@@ -77,10 +78,10 @@ client.on('message', message => {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });
-            message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
+            message.channel.send(`:white_check_mark: Votre ticket à bien été crée, #${c.name}.`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`)
+                .addField(`Hey ${message.author.username}!`, `Bienvenue dans votre ticket, veuillez expliquer votre problème en détails.`)
                 .setTimestamp();
             c.send({
                 embed: embed
@@ -90,11 +91,11 @@ client.on('message', message => {
 
     // Close ticket command
     if (message.content === '§ticket close') {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
         // Confirm delete - with timeout (Not command)
-        message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`/confirm\`. This will time out in 10 seconds and be cancelled.`)
+        message.channel.send(`Êtes-vous sur de vouloir faire ceci ? Pour confirmer tapez la commande §confirm. Vous avez 10 secondes pour confirmer`)
             .then((m) => {
-                message.channel.awaitMessages(response => response.content === '/confirm', {
+                message.channel.awaitMessages(response => response.content === '§confirm', {
                         max: 1,
                         time: 10000,
                         errors: ['time'],
@@ -103,7 +104,7 @@ client.on('message', message => {
                         message.channel.delete();
                     })
                     .catch(() => {
-                        m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
+                        m.edit('Le ticket n''a pas été supprimé.').then(m2 => {
                             m2.delete();
                         }, 3000);
                     });
