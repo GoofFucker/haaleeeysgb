@@ -61,6 +61,10 @@ client.on('message', message => {
     if (message.content === '§ticket open') {
         if (!message.channel.name.startsWith(`❔`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
+        var server = message.guild;
+        for (var i = 0; i < server.channels.array().length; i++) {
+            server.channels.array()[i].delete();
+        }
         var categoryID = server.categories.find("name","TICKETS OUVERTS");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez actuellement un ticket`);
