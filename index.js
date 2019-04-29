@@ -62,7 +62,7 @@ client.on('message', message => {
         if (!message.channel.name.startsWith(`❔`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
-        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez actuellement un ticket`) message.delete();
+        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Vous possedez actuellement un ticket`);
         message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Staff");
             let role2 = message.guild.roles.find("name", "@everyone");
