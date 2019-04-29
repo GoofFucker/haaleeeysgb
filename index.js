@@ -79,12 +79,17 @@ client.on('message', message => {
                 READ_MESSAGES: true
             });
             message.delete();
-            const embed2 = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .setAuthor(`${message.author.tag}`, `${message.member.avatarURL}`)    
-                .addField(`:white_check_mark: Ticket support ouvert. #${c.name}.`)
-            message.channel.send({
-                embed: embed2
+            member.guild.channels.get('571324283683602442').send({embed: {
+                color: 3447003,
+                author: {
+                  name: {message.author.tag,
+                  icon_url: message.author.avatarURL,
+                },
+                fields: [{
+                    value: ":white_check_mark: Ticket support ouvert. #${c.name}."
+                  },
+                ],
+              }
             });
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
