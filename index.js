@@ -105,7 +105,7 @@ client.on('message', message => {
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
                 .addField(`:warning: Votre salon à bien été supprimé`, `Commande: §ticket close`)
-            message.channel.delete({
+            author.send({
                 embed: embed3
             });
     }
