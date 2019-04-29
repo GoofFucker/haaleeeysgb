@@ -82,7 +82,7 @@ client.on('message', message => {
             member.guild.channels.get('571324283683602442').send({embed: {
                 color: 3447003,
                 author: {
-                  name: {message.author.tag,
+                  name: message.author.tag,
                   icon_url: message.author.avatarURL,
                 },
                 fields: [{
