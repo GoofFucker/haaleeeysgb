@@ -81,7 +81,7 @@ client.on('message', message => {
             message.delete();
             const embed2 = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`{message.author.avatarURL}{message.author.username}`, `:white_check_mark: Ticket support ouvert. #${c.name}.`)
+                .addField(`${message.author.avatarURL}${message.author.tag}`, `:white_check_mark: Ticket support ouvert. #${c.name}.`)
             message.channel.send({
                 embed: embed2
             });
