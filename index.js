@@ -81,15 +81,13 @@ client.on('message', message => {
             message.delete();
             const embed2 = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`TEST`, `:white_check_mark: Ticket support ouvert. #${c.name}.`)
-                .setTimestamp();
+                .addField(`{message.author.avatarURL}{message.author.username}`, `:white_check_mark: Ticket support ouvert. #${c.name}.`)
             message.channel.send({
                 embed: embed2
             });
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .addField(`Hey ${message.author.username}!`, `Bienvenue dans votre ticket, veuillez expliquer votre problème en détails.`)
-                .setTimestamp();
             c.send({
                 embed: embed
             });
