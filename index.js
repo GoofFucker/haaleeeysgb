@@ -101,13 +101,6 @@ client.on('message', message => {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
         // Confirm delete - with timeout (Not command)
         message.channel.delete();
-        const embed3 = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:warning: Votre salon à bien été supprimé`, `Commande: §ticket close`)
-            author.send({
-                embed: embed3
-            });
     }
 
 });
