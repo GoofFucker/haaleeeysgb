@@ -79,6 +79,16 @@ client.on('message', message => {
                 READ_MESSAGES: true
             });
             message.delete();
+            const embed = {
+                "description": ":white_check_mark: Ticket support ouvert. #${c.name}.",
+                "url": "https://discordapp.com",
+                "color": 7481181,
+                "author": {
+                  "name": "author name",
+                  "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                }
+              };
+                channel.send({ embed });
             message.channel.send(`:white_check_mark: Votre ticket à bien été crée, #${c.name}.`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
