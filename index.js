@@ -100,27 +100,13 @@ client.on('message', message => {
     if (message.content === '§ticket close') {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
         // Confirm delete - with timeout (Not command)
+        message.channel.delete();
         const embed3 = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:warning: Pour confirmer la supression de ce salon, veuillez utiliser ___***§confirm***___`, `Commande: §ticket close`)
-            message.channel.send({
+                .addField(`:warning: Votre salon à bien été supprimé`, `Commande: §ticket close`)
+            message.channel.delete({
                 embed: embed3
-            });
-            .then((m) => {
-                message.channel.awaitMessages(response => response.content === '§confirm', {
-                        max: 1,
-                        time: 15000,
-                        errors: ['time'],
-                    })
-                    .then((collected) => {
-                        message.channel.delete();
-                    })
-                    .catch(() => {
-                        m.edit('Le ticket a pas été supprimé.').then(m2 => {
-                            m2.delete();
-                        }, 3000);
-                    });
             });
     }
 
