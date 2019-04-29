@@ -82,13 +82,14 @@ client.on('message', message => {
             const embed2 = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:white_check_mark: Ticket support ouvert. #${c.name}.`)
+                .addField(`:white_check_mark: Ticket support ouvert. #${c.name}.`, `Commande: §ticket open`)
             message.channel.send({
                 embed: embed2
             });
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`Hey ${message.author.username}!`, `Bienvenue dans votre ticket, veuillez expliquer votre problème en détails.`)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`Bienvenue dans votre salon`, `Veuillez expliquer votre problème en détails pour qu'un membre du support s'en charge.`)
             c.send({
                 embed: embed
             });
@@ -99,11 +100,17 @@ client.on('message', message => {
     if (message.content === '§ticket close') {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
         // Confirm delete - with timeout (Not command)
-        message.channel.send(`Pour confirmer tapez la commande ___***§confirm***___. Vous avez 10 secondes pour confirmer`)
+        const embed3 = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:warning: Pour confirmer la supression de ce salon, veuillez utiliser ___***§confirm***___`, `Commande: §ticket close`)
+            message.channel.send({
+                embed: embed3
+            });
             .then((m) => {
                 message.channel.awaitMessages(response => response.content === '§confirm', {
                         max: 1,
-                        time: 10000,
+                        time: 15000,
                         errors: ['time'],
                     })
                     .then((collected) => {
