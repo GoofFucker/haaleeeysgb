@@ -104,4 +104,51 @@ function isCommand(message, cmd) {
 }
 
 
-//              MODERATORS            //
+
+client.on('message', message => {
+    if(message.content.startsWith("§suggest")) {
+        if (!message.channel.name.startsWith(`《📡》𝗖𝗼`)) return message.delete();
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            message.delete()
+            const suggest = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:white_check_mark: Suggestion envoyé !.`, `Commande: §suggest`)
+            message.guild.channels.find("name", "《📡》𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝗲𝘀-𝗕𝗢𝗧").sendEmbed(suggest)
+            message.guild.channels.find("name", "《🙏》𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻").send("@here")
+            var sondageembed = new Discord.RichEmbed()
+                .setAuthor(message.author.tag, message.author.avatarURL)
+                .addField("Suggestion: " + thingToEcho, "Qu'en pensez vous ?")
+                .setColor("0xff0000")
+            message.guild.channels.find("name", "《🙏》𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻").sendEmbed(sondageembed)
+            .then(function (message) {
+                message.react("✅")
+                message.react("❌")
+            }).catch(function() { 
+                });
+            }})
+
+client.on('message', message => {
+    if(message.content.startsWith("§sondage")) {
+        if (!message.channel.name.startsWith(`《📡》𝗖𝗼`)) return message.delete();
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            message.delete()
+            const suggest = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:white_check_mark: Sondage envoyé !.`, `Commande: §sondage`)
+            message.guild.channels.find("name", "《📡》𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝗲𝘀-𝗕𝗢𝗧").sendEmbed(suggest)
+            message.guild.channels.find("name", "《❓》𝗦𝗼𝗻𝗱𝗮𝗴𝗲𝘀").send("@here")
+            var sondageembed = new Discord.RichEmbed()
+                .setAuthor(message.author.tag, message.author.avatarURL)
+                .addField("Question: " + thingToEcho, "Choisissez votre camp !")
+                .setColor("0xff0000")
+            message.guild.channels.find("name", "《❓》𝗦𝗼𝗻𝗱𝗮𝗴𝗲𝘀").sendEmbed(sondageembed)
+            .then(function (message) {
+                message.react("✅")
+                message.react("❌")
+            }).catch(function() { 
+                });
+            }})
