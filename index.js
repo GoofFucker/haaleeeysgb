@@ -1,11 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const skyrock = new Discord.Client();
 
+skyrock.login(process.env.SKYTOCK);
 client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`§help | By BalanceTonQuoi19`)
+    client.user.setActivity(`Hey | By BalanceTonQuoi19`)
+})
+
+skyrock.on("ready", () => {
+    console.log("Ready");
+    client.user.setActivity(`24/7 Music | By BalanceTonQuoi19`)
 })
 
 client.on('guildMemberAdd', member => {
