@@ -42,7 +42,7 @@ client.on('guildMemberRemove', member => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`❔`)) return message.delete();
+        if (!message.channel.name.startsWith(`《🌐》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗧𝗶𝗰𝗸𝗲𝘁`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Vous possedez actuellement un ticket`);
