@@ -216,14 +216,10 @@ french.on('message', message => {
             .setColor(0xCF40FA)
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
             .addField(`Ouvrir un ticket:`, `Commande: §ticket open`)
-            .addBlankField(" ")
             .addField(`Fermer un ticket:`, `Commande: §ticket close`)
-            .addBlankField(" ")
             .addField(`Rôle nécessaire pour voir les ticket:`, `Rôle: Support Staff`)
-            .addBlankField(" ")
             .addField(`Channel ou vous pouvez executer les commandes:`, `Nom: 《🌐》Création-ticket`)
-            .addBlankField(" ")
-            .addField(`Ajouter le bot sur son serveur:`, `https://discordapp.com/oauth2/authorize?client_id=573224122612449298&scope=bot&permissions=8`)
+            .addField(`Ajouter le bot sur son serveur:`, `https://discordapp.com/oauth2/authorize?client_id=573224122612449298&scope=bot&permissions=268463160`)
         message.channel.send({
             embed: embed2
         })}})
