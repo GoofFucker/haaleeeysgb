@@ -11,8 +11,8 @@ client.on("ready", () => {
 })
 
 skyrock.on("ready", () => {
-    console.log("Ready");
-    client.user.setActivity(`24/7 Music | By BalanceTonQuoi19`)
+    console.log("Ready2");
+    skyrock.user.setActivity(`24/7 Music | By BalanceTonQuoi19`)
 })
 
 client.on('guildMemberAdd', member => {
