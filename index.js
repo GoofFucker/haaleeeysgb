@@ -57,7 +57,7 @@ client.on('guildMemberRemove', member => {
 
 french.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`《🌐》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗧𝗶𝗰𝗸𝗲𝘁`)) return message.delete();
+        if (!message.channel.name.startsWith(`création-ticket`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Vous possedez actuellement un ticket`);
@@ -218,7 +218,7 @@ french.on('message', message => {
             .addField(`Ouvrir un ticket:`, `Commande: §ticket open`)
             .addField(`Fermer un ticket:`, `Commande: §ticket close`)
             .addField(`Rôle nécessaire pour voir les ticket:`, `Rôle: Support Staff`)
-            .addField(`Channel ou vous pouvez executer les commandes:`, `Nom: 《🌐》Création-ticket`)
+            .addField(`Channel ou vous pouvez executer les commandes:`, `Nom: **création-ticket**`)
             .addField(`Ajouter le bot sur son serveur:`, `https://discordapp.com/oauth2/authorize?client_id=573224122612449298&scope=bot&permissions=268463160`)
         message.channel.send({
             embed: embed2
