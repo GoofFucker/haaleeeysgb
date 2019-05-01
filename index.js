@@ -210,7 +210,7 @@ client.on('message', message => {
             }})
 
 french.on('message', message => {
-    if (message.content === '§help') {
+    if (message.content === '*help') {
         message.delete();
         const embed2 = new Discord.RichEmbed()
             .setColor(0xCF40FA)
