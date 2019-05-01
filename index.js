@@ -5,56 +5,39 @@ client.login(process.env.TOKEN2);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`Développé par BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/BalanceTonQuoi19" })
+    client.user.setActivity(`§help | By BalanceTonQuoi19`)
 })
 
-client.on('guildMemberRemove', member => {
-    member.guild.channels.get('571118782961942528').send({embed: {
+client.on('guildMemberAdd', member => {
+    // Paumés
+    member.guild.channels.get('572875192737595436').send({embed: {
         color: 3447003,
         author: {
-          name: "(Annonce)",
-          icon_url: client.user.avatarURL,
+            name: member.user.tag,
+            icon_url: member.user.avatarURL,
         },
         fields: [{
-            name: "Merci de ta visite !",
-            value: ":x: Au plaisir de vous revoir " + member + " Merci d\'être passé ! :x:\n"
+            name: ":white_check_mark: Bienvenue chez ***Les Paumés***.",
+            value: "Merci de lire le règlement avant de vous aventurer.",
           },
         ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: member.user.avatarURL,
-          text: member.user.username,
-        }
-      }
-    });
-    //member.guild.channels.get('551164240786882601').send(":flag_us: Goodbye " + member + " Thanks for coming ! :x: \n :flag_fr: Au-revoir " + member + " Merci d\'être passé ! :x:");
-    console.log("SendLeave"); 
+    }});
 });
 
-client.on('guildMemberAdd', member => {
-    if (member.user.username.includes("RCON")) {
-        member.ban("Account being a bot.")}})
-
-client.on('guildMemberAdd', member => {
-    member.guild.channels.get('571118782961942528').send({embed: {
+client.on('guildMemberRemove', member => {
+    // Paumés
+    member.guild.channels.get('572875192737595436').send({embed: {
         color: 3447003,
         author: {
-          name: "(Annonce)",
-          icon_url: client.user.avatarURL,
+            name: member.user.tag,
+            icon_url: member.user.avatarURL,
         },
         fields: [{
-            name: "Bienvenue à toi !",
-            value: ":tada: Salut " + member + " Bienvenue sur notre **Discord** ! :tada:\n"
+            name: ":no_entry_sign: ***Les Paumés*** vous remercie de votre visite.",
+            value: "Ce n'est qu'un au-revoir.",
           },
         ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: member.user.avatarURL,
-          text: member.user.username,
-        }
-      }
-    });
-    console.log("SendJoin"); 
+    }});
 });
 
 client.on('message', message => {
@@ -112,3 +95,6 @@ function isCommand(message) {
 function isCommand(message, cmd) {
     return message.content.toLowerCase().startsWith(prefix + cmd);
 }
+
+
+//              MODERATORS            //
