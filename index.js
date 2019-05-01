@@ -4,6 +4,7 @@ const skyrock = new Discord.Client();
 
 skyrock.login(process.env.SKYTOCK);
 client.login(process.env.TOKEN2);
+french.login(process.env.TICKET);
 
 client.on("ready", () => {
     console.log("Ready");
@@ -13,6 +14,12 @@ client.on("ready", () => {
 skyrock.on("ready", () => {
     console.log("Ready2");
     skyrock.user.setActivity(`Music | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+})
+
+
+french.on("ready", () => {
+    console.log("Ready2");
+    french.user.setActivity(`*help | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
 client.on('guildMemberAdd', member => {
@@ -45,6 +52,54 @@ client.on('guildMemberRemove', member => {
           },
         ],
     }});
+});
+
+french.on('message', message => {
+    if (message.content === '§ticket open') {
+        if (!message.channel.name.startsWith(`《🌐》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗧𝗶𝗰𝗸𝗲𝘁`)) return message.delete();
+        const reason = message.content.split(" ").slice(1).join(" ");
+        if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
+        if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Vous possedez actuellement un ticket`);
+            message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+            let role = message.guild.roles.find("name", "Support Staff");
+            let role2 = message.guild.roles.find("name", "@everyone");
+            c.overwritePermissions(role, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+            c.overwritePermissions(message.author, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            message.delete();
+            const embed2 = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:white_check_mark: Ticket support ouvert. #${c.name}.`, `Commande: §ticket open`)
+            message.channel.send({
+                embed: embed2
+            });
+            const embed = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`Bienvenue dans votre salon`, `Veuillez expliquer votre problème en détails pour qu'un membre du support s'en charge.`)
+            c.send({
+                embed: embed
+            });
+        }).catch(console.error); // Send errors to console
+    }
+
+    // Close ticket command
+    if (message.content === '§ticket close') {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Vous pouvez uniquement utiliser cette commande dans votre salon de support.`);
+        // Confirm delete - with timeout (Not command)
+        message.channel.delete();
+    }
+
 });
 
 client.on('message', message => {
