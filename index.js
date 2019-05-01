@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const skyrock = new Discord.Client();
+const french = new Discord.Client();
 
 skyrock.login(process.env.SKYTOCK);
 client.login(process.env.TOKEN2);
@@ -104,7 +105,7 @@ french.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`《🌐》𝗖𝗿𝗲́𝗮𝘁𝗶𝗼𝗻-𝗧𝗶𝗰𝗸𝗲𝘁`)) return message.delete();
+        if (!message.channel.name.startsWith(`《🌐》Création-ticket`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Vous possedez actuellement un ticket`);
@@ -207,3 +208,24 @@ client.on('message', message => {
             }).catch(function() { 
                 });
             }})
+
+french.on('message', message => {
+    if (message.content === '§help') {
+        message.delete();
+        const embed2 = new Discord.RichEmbed()
+            .setColor(0xCF40FA)
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+            .addField(`Ouvrir un ticket:`, `Commande: §ticket open`)
+            .addBlankField(" ")
+            .addField(`Fermer un ticket:`, `Commande: §ticket close`)
+            .addBlankField(" ")
+            .addField(`Rôle nécessaire pour voir les ticket:`, `Rôle: Support Staff`)
+            .addBlankField(" ")
+            .addField(`Channel ou vous pouvez executer les commandes:`, `Nom: 《🌐》Création-ticket`)
+            .addBlankField(" ")
+            .addField(`Ajouter le bot sur son serveur:`, `https://discordapp.com/oauth2/authorize?client_id=573224122612449298&scope=bot&permissions=8`)
+        message.channel.send({
+            embed: embed2
+        })}})
+            
+            
