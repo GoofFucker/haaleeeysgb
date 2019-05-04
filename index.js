@@ -1025,6 +1025,6 @@ mystic.on('message', message => {
                .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL} `)
                .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
                .addField('Lien pour ajouter le bot :https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
-            msg.channel.send({cacadembed2})
-            msg.author.send({cacadembed})
+            message.channel.send({cacadembed2})
+            message.author.send({cacadembed})
         }}});
