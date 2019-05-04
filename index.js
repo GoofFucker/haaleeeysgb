@@ -247,8 +247,8 @@ mystic.on('message', message => {
         })}})
             
 mystic.on('message', message => {
-    if (msg.content === '^^minecraft') { //tu peut remplacer la commande par ce que tu veut
-        if (msg.channel.name === "《🌊》𝗚𝗲́𝗻𝗲́𝗿𝗮𝘁𝗲𝘂𝗿") {
+    if (message.content === '^^minecraft') { //tu peut remplacer la commande par ce que tu veut
+        if (message.channel.name === "《🌊》𝗚𝗲́𝗻𝗲́𝗿𝗮𝘁𝗲𝘂𝗿") {
 
           var answers = [
           'j_magalang@yahoo.com:Ragnarok004',
