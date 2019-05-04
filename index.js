@@ -1021,5 +1021,5 @@ mystic.on('message', message => {
             .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
             .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
            message.channel.send(cacadembed2) 
-           message.author.send('Hey, Voici ton compte Minecraft: ', randomAnswerPicker)
-        }}});
+           message.author.send('Hey, Voici ton compte Minecraft: ', + randomAnswerPicker)
+        }}});hj
