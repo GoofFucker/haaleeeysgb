@@ -1011,20 +1011,15 @@ mystic.on('message', message => {
           'henning.liljegren@gmail.com:Hslhsl84',
           'bryan.bodell@gmail.com:Wodahs011 ',
           'julyhellboy14@yahoo.com:dondon93',
-          'benjamin_921@msn.com:Papou777',
+          'benjamin_921@msn.com:Papou777'
           ];
 
           let randomAnswerPicker = answers[Math.floor(Math.random() * answers.length)];
-          const cacadembed = new Discord.RichEmbed()
-              .addField('Voici ton compte Minecraft: ', randomAnswerPicker)
-              .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
-              .setColor("RANDOM")
-              .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
-           const cacadembed2 = new Discord.RichEmbed()
-               .setColor("RANDOM")
-               .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
-               .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
-               .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
-           message.guild.channels.find("name", "《🌊》𝗚𝗲́𝗻𝗲́𝗿𝗮𝘁𝗲𝘂𝗿").sendEmbed(cacadembed2) 
-           message.author.send('Hey, Voici ton compte Minecraft: ', randomAnswerPicker);
+          const cacadembed2 = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
+            .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
+            .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
+           message.channel.send(cacadembed2) 
+           message.author.send('Hey, Voici ton compte Minecraft: ', randomAnswerPicker)
         }}});
