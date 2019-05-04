@@ -1025,6 +1025,6 @@ mystic.on('message', message => {
                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
                .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
                .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
-            message.channel.send({cacadembed2})
-            message.author.send({cacadembed})
+           message.guild.channels.find("name", "《🌊》𝗚𝗲́𝗻𝗲́𝗿𝗮𝘁𝗲𝘂𝗿").sendEmbed(cacadembed2) 
+           message.author.send('Hey, Voici ton compte Minecraft: ', randomAnswerPicker);
         }}});
