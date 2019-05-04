@@ -21,7 +21,7 @@ skyrock.on("ready", () => {
 
 mystic.on("ready", () => {
     console.log("Ready2");
-    french.user.setActivity(`^^help | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+    mystic.user.setActivity(`^^help | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
 
