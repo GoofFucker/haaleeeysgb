@@ -1017,14 +1017,14 @@ mystic.on('message', message => {
           let randomAnswerPicker = answers[Math.floor(Math.random() * answers.length)];
           const cacadembed = new Discord.RichEmbed()
               .addField('Voici ton compte Minecraft: ', randomAnswerPicker)
-              .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL} `)
+              .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
               .setColor("RANDOM")
-              .addField('Lien pour ajouter le bot :https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
+              .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
            const cacadembed2 = new Discord.RichEmbed()
                .setColor("RANDOM")
-               .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL} `)
+               .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)
                .addField(`:white_check_mark: Compte Généré.`, `Regardez vos MP's`)
-               .addField('Lien pour ajouter le bot :https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
+               .addField('Lien pour ajouter le bot: https://discordapp.com/oauth2/authorize?client_id=574323767757504536&scope=bot&permissions=268463160')
             message.channel.send({cacadembed2})
             message.author.send({cacadembed})
         }}});
