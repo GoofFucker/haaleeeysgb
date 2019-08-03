@@ -26,6 +26,17 @@ french.on("message", (message) => {
                 embed: nolink
             });
   }
+  if (message.content.includes(.gg/")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete();
+    const nolink = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:x: La publicité est interdite`, `Dommage...`)
+            message.channel.send({
+                embed: nolink
+            });
+  }
   if (message.content.includes("http://")) {
     console.log("deleted " + message.content + " from " + message.author)
     message.delete();
