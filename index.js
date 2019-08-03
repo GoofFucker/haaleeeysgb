@@ -125,6 +125,11 @@ client.on('guildMemberRemove', member => {
 });
 
 french.on('message', message => {
+    if (message.contains === './') {
+        if (!message.channel.name.startsWith(`invites`)) return message.delete();
+    }});
+
+french.on('message', message => {
     if (message.content === '§ticket open') {
         if (!message.channel.name.startsWith(`création-ticket`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
