@@ -49,7 +49,7 @@ french.on('guildMemberAdd', member => {
         },
         fields: [{
             name: ":white_check_mark: Bienvenue à toi, jeune padawan.",
-            value: "Invité par **${inviter.tag}**.",
+            value: "**Il est temps de charbonner !!**",
           },
         ],
     }});
@@ -65,7 +65,7 @@ french.on('guildMemberRemove', member => {
         },
         fields: [{
             name: ":x: Merci d'être passé !",
-            value: "Invité par **${inviter.tag}**.",
+            value: "Tu as trop charbonné, tu es épuisé !",
           },
         ],
     }});
