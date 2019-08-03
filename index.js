@@ -10,18 +10,8 @@ client.on("ready", () => {
     client.user.setActivity(`Hey | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
-french.on("ready", async () => {
-    
-  setInterval(function() {
-      french.user.setActivity(`Créé par MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-       await sleep(5000);
-      french.user.setActivity(`Support - §help`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-       await sleep(5000);
-      french.user.setActivity(`100% Français`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-       await sleep(5000);
-  }, 20000)
-
-
+french.on("ready", () => {
+      french.user.setActivity(`§help - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 });
 
 client.on('guildMemberAdd', member => {
