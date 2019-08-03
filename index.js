@@ -30,6 +30,38 @@ client.on('guildMemberAdd', member => {
     }});
 });
 
+french.on('guildMemberAdd', member => {
+    // Paumés
+    member.guild.channels.get('607288110119780382').send({embed: {
+        color: 3447003,
+        author: {
+            name: member.user.tag,
+            icon_url: member.user.avatarURL,
+        },
+        fields: [{
+            name: ":white_check_mark: Bienvenue à toi, jeune padawan.",
+            value: "Invité par **${inviter.tag}**.",
+          },
+        ],
+    }});
+});
+
+french.on('guildMemberRemove', member => {
+    // Paumés
+    member.guild.channels.get('607288110119780382').send({embed: {
+        color: 3447003,
+        author: {
+            name: member.user.tag,
+            icon_url: member.user.avatarURL,
+        },
+        fields: [{
+            name: ":x: Merci d'être passé !",
+            value: "Invité par **${inviter.tag}**.",
+          },
+        ],
+    }});
+});
+
 client.on('guildMemberRemove', member => {
     // Paumés
     member.guild.channels.get('572875192737595436').send({embed: {
