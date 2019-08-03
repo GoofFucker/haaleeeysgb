@@ -14,6 +14,42 @@ french.on("ready", () => {
       french.user.setActivity(`§help - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 });
 
+french.on("message", (message) => {
+  if (message.content.includes("https://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete();
+    const nolink = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:x: La publicité est interdite`, `Dommage...`)
+            message.channel.send({
+                embed: nolink
+            });
+  }
+  if (message.content.includes("http://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete();
+    const nolink = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:x: La publicité est interdite`, `Dommage...`)
+            message.channel.send({
+                embed: nolink
+            });
+  }
+  if (message.content.includes("www.")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete();
+    const nolink = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:x: La publicité est interdite`, `Dommage...`)
+            message.channel.send({
+                embed: nolink
+            });
+  }
+});
+
 client.on('guildMemberAdd', member => {
     member.guild.channels.get('572875192737595436').send({embed: {
         color: 3447003,
