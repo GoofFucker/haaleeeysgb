@@ -125,7 +125,7 @@ client.on('guildMemberRemove', member => {
 });
 
 french.on('message', message => {
-    if (message.contains === './') {
+    if (message.content.startsWith(`./`)) {
         if (!message.channel.name.startsWith(`invites`)) return message.delete();
     }});
 
