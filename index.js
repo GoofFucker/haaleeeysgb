@@ -26,7 +26,7 @@ french.on("message", (message) => {
                 embed: nolink
             });
   }
-  if (message.content.includes(.gg/")) {
+  if (message.content.includes(".gg/")) {
     console.log("deleted " + message.content + " from " + message.author)
     message.delete();
     const nolink = new Discord.RichEmbed()
