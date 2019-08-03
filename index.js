@@ -10,10 +10,20 @@ client.on("ready", () => {
     client.user.setActivity(`Hey | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
-french.on("ready", () => {
-    console.log("Ready2");
-    french.user.setActivity(`*help | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-})
+french.on("ready", async () => {
+    
+  function sleep(ms) {
+      french.user.setActivity(`Créé par MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+       await sleep(5000);
+      french.user.setActivity(`Support - §help`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+       await sleep(5000);
+      french.user.setActivity(`100% Français`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+       await sleep(5000);
+      return new Promise(resolve => setTimeout(resolve(), ms));
+  }
+
+
+}});
 
 client.on('guildMemberAdd', member => {
     // Paumés
@@ -202,7 +212,7 @@ client.on('message', message => {
             }})
 
 french.on('message', message => {
-    if (message.content === '*help') {
+    if (message.content === '§help') {
         message.delete();
         const embed2 = new Discord.RichEmbed()
             .setColor(0xCF40FA)
