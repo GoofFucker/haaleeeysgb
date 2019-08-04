@@ -21,19 +21,18 @@ french.on("ready", () => {
       french.user.setActivity(`§help - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 });
 
-Caitlin.on('message', msg => {
-    if (msg.guild && msg.content.startsWith('>Pub')) {
-    let text = msg.content.slice('>Pub'.length); // cuts off the /private part
+Caitlin.on('message', message => {
+    if (message.content.startsWith('>Pub')) {
+    let text = message.content.slice('>Pub'.length); // cuts off the /private part
     message.delete();
-    msg.delete();
     const publ = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
                 .addField(`:white_check_mark: Votre message à bien été envoyé !`, `Depuis: ${guild.name}`)
-            msg.channel.send({
+            message.channel.send({
                 embed: publ
             });
-    msg.guild.members.forEach(member => {
+    message.guild.members.forEach(member => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
     });
   }
