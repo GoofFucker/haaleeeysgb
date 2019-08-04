@@ -22,7 +22,7 @@ french.on("ready", () => {
 });
 
 Caitlin.on('message', msg => {
-  if (msg.guild && msg.content.startsWith('/private')) {
+  if (msg.guild && msg.content.startsWith('+Pub')) {
     let text = msg.content.slice('+Pub'.length); // cuts off the /private part
     msg.guild.members.forEach(member => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
