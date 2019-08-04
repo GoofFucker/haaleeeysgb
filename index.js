@@ -28,7 +28,7 @@ Caitlin.on('message', message => {
     const publ = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:white_check_mark: Votre message à bien été envoyé !`, `Depuis: ${guild.name}`)
+                .addField(`:white_check_mark: Votre message à bien été envoyé !`, `Toujours prêt à servir.`)
             message.channel.send({
                 embed: publ
             });
