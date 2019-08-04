@@ -1,17 +1,33 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const french = new Discord.Client();
+const Caitlin = new Discord.Client();
 
 client.login(process.env.TOKEN2);
 french.login(process.env.TICKET);
+Caitlin.login(process.env.PUB);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`Hey | By BalanceTonQuoi19`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+    client.user.setActivity(`Hey - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+});
+
+Caitlin.on("ready", () => {
+    console.log("Ready");
+    client.user.setActivity(`+Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
 french.on("ready", () => {
       french.user.setActivity(`§help - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+});
+
+Caitlin.on('message', msg => {
+  if (msg.guild && msg.content.startsWith('/private')) {
+    let text = msg.content.slice('+Pub'.length); // cuts off the /private part
+    msg.guild.members.forEach(member => {
+      if (member.id != client.user.id && !member.user.bot) member.send(text);
+    });
+  }
 });
 
 french.on("message", (message) => {
