@@ -24,17 +24,17 @@ french.on("ready", () => {
 Caitlin.on('message', msg => {
   if (msg.guild && msg.content.startsWith('+Pub')) {
     let text = msg.content.slice('+Pub'.length); // cuts off the /private part
+    message.delete();
+    const pub2 = new Discord.RichEmbed()
+        .setColor(0xCF40FA)
+        .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+         .addField(`:white_check_mark: Votre message à été envoyé !`, `Depuis : ${guild.name}`)
+      message.channel.send({
+         embed: pub2
+      });
     msg.guild.members.forEach(member => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
     });
-    message.delete();
-    const pub2 = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:white_check_mark: Votre message à été envoyé !`, `Depuis : ${guild.name}`)
-            message.channel.send({
-                embed: pub2
-            });
   }
 });
 
