@@ -14,7 +14,7 @@ client.on("ready", () => {
 
 Caitlin.on("ready", () => {
     console.log("Ready");
-    Caitlin.user.setActivity(`+Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+    Caitlin.user.setActivity(`>Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
 french.on("ready", () => {
@@ -22,16 +22,17 @@ french.on("ready", () => {
 });
 
 Caitlin.on('message', msg => {
-  if (msg.guild && msg.content.startsWith('+Pub')) {
-    let text = msg.content.slice('+Pub'.length); // cuts off the /private part
+    if (msg.guild && msg.content.startsWith('>Pub')) {
+    let text = msg.content.slice('>Pub'.length); // cuts off the /private part
     message.delete();
-    const pub2 = new Discord.RichEmbed()
-        .setColor(0xCF40FA)
-        .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-         .addField(`:white_check_mark: Votre message à été envoyé !`, `Depuis : ${guild.name}`)
-      message.channel.send({
-         embed: pub2
-      });
+    msg.delete();
+    const publ = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
+                .addField(`:white_check_mark: Votre message à bien été envoyé !`, `Depuis: ${guild.name}`)
+            msg.channel.send({
+                embed: publ
+            });
     msg.guild.members.forEach(member => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
     });
