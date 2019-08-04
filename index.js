@@ -14,7 +14,7 @@ client.on("ready", () => {
 
 Caitlin.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`+Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+    Caitlin.user.setActivity(`+Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 })
 
 french.on("ready", () => {
