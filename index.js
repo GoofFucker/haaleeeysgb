@@ -7,7 +7,7 @@ french.login(process.env.TICKET);
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity(`Hey - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
+    client.user.setActivity(`Toujours prêt à servir !`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 });
 
 french.on("ready", () => {
@@ -62,15 +62,15 @@ french.on("message", (message) => {
 });
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('572875192737595436').send({embed: {
+    member.guild.channels.get('608061468197388288').send({embed: {
         color: 3447003,
         author: {
             name: member.user.tag,
             icon_url: member.user.avatarURL,
         },
         fields: [{
-            name: ":white_check_mark: Bienvenue chez ***Les Paumés***.",
-            value: "Merci de lire le règlement avant de vous aventurer.",
+            name: ":white_check_mark: Bienvenue sur __**Caitlin Support**__.",
+            value: "Nous vous remercions d'avoir rejoint le serveur.",
           },
         ],
     }});
@@ -110,14 +110,14 @@ french.on('guildMemberRemove', member => {
 
 client.on('guildMemberRemove', member => {
     // Paumés
-    member.guild.channels.get('572875192737595436').send({embed: {
+    member.guild.channels.get('608061468197388288').send({embed: {
         color: 3447003,
         author: {
             name: member.user.tag,
             icon_url: member.user.avatarURL,
         },
         fields: [{
-            name: ":no_entry_sign: ***Les Paumés*** vous remercie de votre visite.",
+            name: ":no_entry_sign: __**Caitlin Support**__ vous remercie de votre visite.",
             value: "Ce n'est qu'un au-revoir.",
           },
         ],
@@ -179,7 +179,7 @@ french.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '§ticket open') {
-        if (!message.channel.name.startsWith(`《🌐》Création-ticket`)) return message.delete();
+        if (!message.channel.name.startsWith(`「🎟」ticket`)) return message.delete();
         const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`NO`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Vous possedez actuellement un ticket`);
