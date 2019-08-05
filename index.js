@@ -1,38 +1,17 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const french = new Discord.Client();
-const Caitlin = new Discord.Client();
 
 client.login(process.env.TOKEN2);
 french.login(process.env.TICKET);
-Caitlin.login(process.env.PUB);
 
 client.on("ready", () => {
     console.log("Ready");
     client.user.setActivity(`Hey - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
 });
 
-Caitlin.on("ready", () => {
-    console.log("Ready");
-    Caitlin.user.setActivity(`>Pub - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-})
-
 french.on("ready", () => {
       french.user.setActivity(`§help - By MisdirectionOV#6496`, { type: "STREAMING", url: "https://www.twitch.tv/balancetonquoi19" })
-});
-
-Caitlin.on('message', message => {
-    if (message.content.startsWith('>Pub')) {
-    let text = message.content.slice('>Pub'.length); // cuts off the /private part
-    message.delete();
-    const publ = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:x: Votre message n'a pas été envoyé !`, `Infrastructure en Maintenance`)
-            message.channel.send({
-                embed: publ
-            });
-  }
 });
 
 french.on("message", (message) => {
