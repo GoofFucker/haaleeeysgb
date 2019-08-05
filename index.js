@@ -28,13 +28,10 @@ Caitlin.on('message', message => {
     const publ = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL} `)    
-                .addField(`:white_check_mark: Votre message à bien été envoyé !`, `Toujours prêt à servir.`)
+                .addField(`:x: Votre message n'a pas été envoyé !`, `Infrastructure en Maintenance`)
             message.channel.send({
                 embed: publ
             });
-    message.guild.members.forEach(member => {
-      if (member.id != client.user.id && !member.user.bot) member.send(text);
-    });
   }
 });
 
